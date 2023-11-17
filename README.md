@@ -17,11 +17,11 @@ If call is omitted, the default value is 1, and if it is larger than the number 
 
 #### Response message
 ```
-{
+[{
     "menuNum": "7",
     "menuName": "김치찌개",
     "useYn": "Y"
-}
+}]
 ```
 
 ---
