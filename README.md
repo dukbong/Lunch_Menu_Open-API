@@ -6,7 +6,7 @@ SERVICE KEY : REQURIED
 
 ---
 
-#### REST(URL)
+#### REST(URL) : 원하는 만큼 메뉴 보기
 [GET] app/key=test/lunch?call=1
 
 #### Description
@@ -24,7 +24,7 @@ The menu information stored in the DB is randomly returned as the value of call,
 
 ---
 
-#### REST(URL)
+#### REST(URL) : 전체 메뉴 보기
 [GET] app/key=test/lunch/all
 
 #### Description
@@ -54,7 +54,7 @@ Returns all data that can be printed among the menus stored in the DB.
 
 ---
 
-#### REST(URL)
+#### REST(URL) : 메뉴 추가하기
 [POST] app/key=test/lunch/햄버거
 
 #### Description
@@ -82,7 +82,7 @@ You can save the desired menu to the DB, and a message will be displayed dependi
 
 ---
 
-#### REST(URL)
+#### REST(URL) : 메뉴 삭제하기
 [DELETE] app/key=test/lunch/햄버거
 
 #### Description
