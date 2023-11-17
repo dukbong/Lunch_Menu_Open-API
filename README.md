@@ -119,3 +119,24 @@ This operation requires permission, and you can delete the desired menu from the
 ```
 
 ---
+
+#### REST(URL) : 서비스 키 발급 (테스트)
+[GET] app/apiKey_issuance
+
+#### Description
+
+This is the URL where the service key can be issued and will be modified during actual operation.
+
+#### [SUCCESS] Response message
+```
+{
+    "keyNum": "59",
+    "keyValue": "63d9a131-87b1-4d2a-a5fe-2e4d7fc3699a",
+    "keyIssued": "2023-11-17",
+    "keyMaxAge": "23/11/18",
+    "status": "SUCCESS",
+    "note": "발급 완료"
+}
+```
+
+---
