@@ -10,7 +10,7 @@ import com.lmp.lunchmenu.domain.LunchMenu;
 
 public interface LunchService {
 
-	LunchMenu getRandomMenu();
+	List<LunchMenu> getRandomMenu(int call);
 
 	AddCheck addMenu(String menuName);
 

@@ -1,10 +1,14 @@
 package com.lmp.lunchmenu.serviceImpl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
@@ -34,10 +38,23 @@ public class LunchServiceImpl implements LunchService {
 //	}
 	
 	@Override
-	public LunchMenu getRandomMenu() {
+	public List<LunchMenu> getRandomMenu(int call) {
 		List<LunchMenu> menuList = lunchDao.getAllMenu();
-		int ran = (int)(Math.random() * menuList.size());
-		return menuList.get(ran);
+		
+		Set<Integer> set = new HashSet<>();
+		List<LunchMenu> showMenuList = new ArrayList<>();
+		
+		while(set.size() != call){
+			int ran = (int)(Math.random() * menuList.size());
+			set.add(ran);
+		}
+		
+		Iterator<Integer> it = set.iterator();
+		while(it.hasNext()){
+			showMenuList.add(menuList.get(it.next()));
+		}
+		
+		return showMenuList;
 	}
 
 	@Override

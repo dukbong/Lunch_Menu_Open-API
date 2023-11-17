@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lmp.lunchmenu.domain.AddCheck;
@@ -27,8 +28,8 @@ public class LunchController {
 	
 
 	@GetMapping("lunch")
-	public LunchMenu randomLunch() {
-		return LunchServiceImpl.getRandomMenu();
+	public List<LunchMenu> randomLunch(@RequestParam(value = "call", defaultValue = "1")int call) {
+		return LunchServiceImpl.getRandomMenu(call);
 	}
 
 	@GetMapping("lunch/all")
