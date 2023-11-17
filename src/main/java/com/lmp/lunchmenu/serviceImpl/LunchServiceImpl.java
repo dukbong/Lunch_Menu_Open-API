@@ -41,9 +41,13 @@ public class LunchServiceImpl implements LunchService {
 	public List<LunchMenu> getRandomMenu(int call) {
 		List<LunchMenu> menuList = lunchDao.getAllMenu();
 		
+		// max = menuList.size() - 1, min = 1
+		if(call >= menuList.size()){
+			call = menuList.size() - 1;
+		}
+		
 		Set<Integer> set = new HashSet<>();
 		List<LunchMenu> showMenuList = new ArrayList<>();
-		
 		while(set.size() != call){
 			int ran = (int)(Math.random() * menuList.size());
 			set.add(ran);
