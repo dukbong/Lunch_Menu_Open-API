@@ -11,7 +11,9 @@ SERVICE KEY : REQURIED
 
 #### Description
 
-The menu information stored in the DB is randomly returned as the value of call, and the default value is 1.
+It is randomly selected and returned from the menus that can be printed from the DB.
+
+If call is omitted, the default value is 1, and if it is larger than the number of menus, only the number of menus is returned.
 
 #### Response message
 ```
