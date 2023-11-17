@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lmp.lunchmenu.dao.LunchDao">
+
+<sql id="lunchMenu_seq">
+	LUNCH_SEQ.NEXTVAL
+</sql>
+
+<select id="getAllMenu">
+	SELECT MENU_NUM, MENU_NAME, USE_YN
+	FROM LUNCHTABLE
+	WHERE USE_YN = 'Y'
+</select>
+
+<select id="checkMenu">
+	SELECT MENU_NAME
+	FROM LUNCHTABLE
+	WHERE MENU_NAME = #{menuName}
+</select>
+
+<insert id="addMenu">
+	INSERT INTO LUNCHTABLE
+	VALUES
+	(
+		<include refid="lunchMenu_seq"/>,
+		#{menuName},
+		'Y'
+	)
+</insert>
+
+<update id="deleteMenu">
+	UPDATE LUNCHTABLE
+	SET USE_YN = 'W'
+	WHERE MENU_NAME = #{menuName}
+</update>
+
+<select id="apiCheck" parameterType="string">
+	SELECT KEY_NUM, KEY_VALUE, KEY_ISSUED, KEY_MAX_AGE
+	FROM KEYTABLE
+	WHERE KEY_VALUE = #{keyValue}
+</select>
+
+<select id="keyIssuance" statementType="CALLABLE" resultType="hashmap">
+	CALL FUNC_LUNCH_API_ISSUANCE(
+		#{IN_KEY_VALUE,     mode=IN,   jdbcType=VARCHAR},
+		#{OUT_KEY_NUM,      mode=OUT,  jdbcType=VARCHAR},
+		#{OUT_KEY_ISSUED,   mode=OUT,  jdbcType=VARCHAR},
+		#{OUT_KEY_MAX_AGE,  mode=OUT,  jdbcType=VARCHAR},
+		#{OUT_STATUS,       mode=OUT,  jdbcType=VARCHAR},
+		#{OUT_NOTE,         mode=OUT,  jdbcType=VARCHAR},
+		#{OUT_CODE,         mode=OUT,  jdbcType=VARCHAR}
+	)
+</select>
+</mapper>
