@@ -59,7 +59,7 @@ Returns all data that can be printed among the menus stored in the DB.
 
 #### Description
 
-Returns all data that can be printed among the menus stored in the DB.
+You can save the desired menu to the DB, and a message will be displayed depending on success.
 
 #### [SUCCESS] Response message
 ```
@@ -77,6 +77,44 @@ Returns all data that can be printed among the menus stored in the DB.
     "menuName": "햄버거",
     "code": -1,
     "status": "FAILED"
+}
+```
+
+---
+
+#### REST(URL)
+[DELETE] app/key=test/lunch/햄버거
+
+#### Description
+
+This operation requires permission, and you can delete the desired menu from the DB, and a message will be displayed depending on whether it was successful or not.
+
+#### [SUCCESS] Response message
+```
+{
+    "act": "Delete Menu",
+    "menuName": "물갈비",
+    "code": 1,
+    "status": "SUCCESS"
+}
+```
+#### [FAILED] Response message
+```
+// If there is no information to delete in the DB
+{
+    "act": "Delete Menu",
+    "menuName": "물",
+    "code": -1,
+    "status": "FAILED"
+}
+```
+```
+// If you do not have permission
+{
+    "act": "Delete",
+    "menuName": null,
+    "code": 0,
+    "status": "관리자만 삭제가 가능합니다."
 }
 ```
 
