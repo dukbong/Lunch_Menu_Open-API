@@ -8,13 +8,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AddCheck {
-	@JsonProperty("Act       ")
 	private String act;
-	@JsonProperty("Menu_Name ")
 	private String menuName;
-	@JsonProperty("Code      ")
 	private int code;
-	@JsonProperty("Status    ")
 	private String status;
 	
 	public void setCode(int code) {

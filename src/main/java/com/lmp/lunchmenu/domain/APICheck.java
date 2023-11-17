@@ -13,22 +13,16 @@ import lombok.Setter;
 @NoArgsConstructor
 public class APICheck {
 	
-	@JsonProperty("Key_SEQ   ")
 	private String keyNum;
-	@JsonProperty("Key_VALUE ")
 	private String keyValue;
-	@JsonProperty("Key_Issued")
 	private String keyIssued;
-	@JsonProperty("Key_MaxAge")
 	private String keyMaxAge;
 	
 	
 //	@JsonProperty("Code      ")
 //	private int code;
-	@JsonProperty("Status    ")
 	private String status;
 	
-	@JsonProperty("Note      ")
 //	private String note = "If you wish to extend the validity period further, please contact us at test@gmail.com";
 	private String note;
 	

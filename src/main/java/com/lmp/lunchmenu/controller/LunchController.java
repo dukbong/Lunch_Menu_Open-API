@@ -1,7 +1,9 @@
 package com.lmp.lunchmenu.controller;
 
 import java.util.List;
+import java.util.Locale;
 
+import org.springframework.context.MessageSource;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +23,8 @@ import lombok.RequiredArgsConstructor;
 public class LunchController {
 
 	private final LunchService LunchServiceImpl;
+	private final MessageSource messageSource;
+	
 
 	@GetMapping("lunch")
 	public LunchMenu randomLunch() {
@@ -39,7 +43,7 @@ public class LunchController {
 
 	@DeleteMapping("lunch/{menuName}")
 	public AddCheck deleteMenu(@PathVariable String key, @PathVariable String menuName) {
-		if(key.equals("${masterKey.key}")){
+		if(key.equals(messageSource.getMessage("masterKey.key",new String[]{}, Locale.getDefault()))){
 			return LunchServiceImpl.deleteMenu(menuName);
 		}else{
 			AddCheck addCheck = new AddCheck();

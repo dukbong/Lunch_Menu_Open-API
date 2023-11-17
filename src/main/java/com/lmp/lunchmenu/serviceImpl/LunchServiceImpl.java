@@ -48,7 +48,6 @@ public class LunchServiceImpl implements LunchService {
 		addCheck.setAct("Add Menu");
 		addCheck.setMenuName(menuName);
 		Optional<LunchMenu> menu = lunchDao.checkMenu(menuName);
-		System.out.println(menu.isPresent());
 		if(menu.isPresent()){
 			addCheck.setCode(-1);
 		}else{
@@ -73,7 +72,6 @@ public class LunchServiceImpl implements LunchService {
 		addCheck.setMenuName(menuName);
 		
 		Optional<LunchMenu> menu = lunchDao.checkMenu(menuName);
-		
 		if(menu.isPresent()){
 			int resultCode = lunchDao.deleteMenu(menuName);
 			addCheck.setCode(resultCode);

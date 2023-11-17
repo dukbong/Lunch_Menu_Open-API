@@ -16,6 +16,7 @@
 	SELECT MENU_NAME
 	FROM LUNCHTABLE
 	WHERE MENU_NAME = #{menuName}
+	AND USE_YN = 'Y'
 </select>
 
 <insert id="addMenu">
@@ -32,6 +33,7 @@
 	UPDATE LUNCHTABLE
 	SET USE_YN = 'W'
 	WHERE MENU_NAME = #{menuName}
+	AND USE_YN = 'Y'
 </update>
 
 <select id="apiCheck" parameterType="string">
